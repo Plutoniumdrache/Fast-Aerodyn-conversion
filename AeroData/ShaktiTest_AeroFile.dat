@@ -1,0 +1,37 @@
+--------- AeroDyn v14.04.* INPUT FILE -------------------------------------------------------------------------
+NREL 5.0 MW offshore baseline aerodynamic input properties.
+"BEDDOES"     StallMod     - Dynamic stall included [BEDDOES or STEADY] (unquoted string)
+"USE_CM"      UseCm        - Use aerodynamic pitching moment model? [USE_CM or NO_CM] (unquoted string)
+"EQUIL"       InfModel     - Inflow model [DYNIN or EQUIL] (unquoted string)
+"SWIRL"       IndModel     - Induction-factor model [NONE or WAKE or SWIRL] (unquoted string)
+      0.005   AToler       - Induction-factor tolerance (convergence criteria) (-)
+"PRANDtl"     TLModel      - Tip-loss model (EQUIL only) [PRANDtl, GTECH, or NONE] (unquoted string)
+"PRANDtl"     HLModel      - Hub-loss model (EQUIL only) [PRANdtl or NONE] (unquoted string)
+          0   TwrShad      - Tower-shadow velocity deficit (-)
+     9999.9   ShadHWid     - Tower-shadow half width (m)
+     9999.9   T_Shad_Refpt - Tower-shadow reference point (m)
+      1.12    AirDens      - Air density (kg/m^3)
+  1.464E-05   KinVisc      - Kinematic air viscosity [CURRENTLY IGNORED] (m^2/sec)
+"default"     DTAero       - Time interval for aerodynamic calculations (sec)
+          7   NumFoil      - Number of airfoil files (-)
+"Airfoils/Cylinder1.dat"    FoilNm      - Names of the airfoil files [NumFoil lines] (quoted strings)
+"Airfoils/NACA_0060_20_Re6.000_M0.00_N9.0_360_M.dat"
+"Airfoils/DU40_A17_coords20_Re6.000_M0.00_N9.0_360_M_copy.dat"
+"Airfoils/DU35_A17.dat"
+"Airfoils/DU30_A17.dat"
+"Airfoils/DU25_A17.dat"
+"Airfoils/NACA64_A17.dat"
+         10   BldNodes    - Number of blade nodes used for analysis (-)
+RNodes         AeroTwst       DRNodes        Chord          NFoil          PrnElm
+4.129		   15.00  		4.258  	 		3.72500          1      NOPRINT 
+8.283		   15.00  		4.05  	 		3.72500          2      NOPRINT 
+12.3325        12.00  		4.049  	 		4.80000          3      NOPRINT 
+19.931         9.00   		11.148   		5.74000          4      NOPRINT 
+32.0575        7.10   		13.105   		5.09182          4      NOPRINT 
+45.5           2.47   	    13.78    		4.32985          5      NOPRINT 
+58.9425  	   1.95         13.105   		3.52866          6      NOPRINT 
+71.069         1.53         11.148   		2.76668          7      NOPRINT 
+80.6925        0.69         8.099    		2.11851          7      NOPRINT 
+86.871         0.22         4.258    		1.64758          7      NOPRINT 
+
+

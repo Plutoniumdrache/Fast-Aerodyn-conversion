@@ -1,0 +1,49 @@
+*********************************************************************
+* Controller Discon for the Optimus 5 MW Shakti based on:
+* Feedback controller v1.0 for the 3.4 MW turbine of IEA Wind Task 37 
+* (c) SWE, sowento, WETI 
+* Compiled with case FBv1 on 03-Feb-2019 20:52:20 by schlipf
+* Communication Interval fixed to: 0.0125 s!
+* changed on 26.11.2024
+* changed static parameters
+* and Delta_Omega_g
+*********************************************************************
+* ------------------
+* Static parameters
+* ------------------
+Parameter.CPC.Omega_g_rated           = 44.8724
+Parameter.VSC.M_g_rated               = 115350
+Parameter.CPC.theta_min               = 0.020944
+Parameter.VSC.Omega_g_1d5             = 31.4159
+Parameter.VSC.k                       = 46.303455541402535
+* ------------------
+* Dynamic parameters
+* ------------------
+Parameter.CPC.theta_K                 = 0.3491
+Parameter.CPC.kp                      = 0.025
+Parameter.CPC.Ti                      = 10
+Parameter.VSC.kp                      = 27928.661741
+Parameter.VSC.Ti                      = 2.196201
+Parameter.VSC.Delta_Omega_g           = 4.4872
+Parameter.VSC.Delta_theta             = 0.3491
+Parameter.VSC.Delta_P                 = 5000000
+* ------------------
+* Other parameters
+* ------------------
+Parameter.VSC.i_G_max                 = 1.1
+Parameter.Filter.LowPass.Enable       = 1
+Parameter.Filter.LowPass.f_cutoff     = 1
+Parameter.Filter.LowPass2.f_cutoff    = 0.02
+Parameter.Filter.LowPass3.f_cutoff    = 0.01
+Parameter.Filter.NotchFilter.Enable   = 1
+Parameter.Filter.NotchFilter.Gain     = 0.030928
+Parameter.Filter.NotchFilter.BW       = 0.1
+Parameter.Filter.NotchFilter.D        = 0.01
+* ------------------
+* Pitch Actuator
+* ------------------
+Parameter.PitchActuator.omega         = 3.1416
+Parameter.PitchActuator.xi            = 0.8
+Parameter.PitchActuator.theta_dot_max = 0.0349
+Parameter.PitchActuator.theta_max     = 1.5708
+Parameter.PitchActuator.theta_min     = 0

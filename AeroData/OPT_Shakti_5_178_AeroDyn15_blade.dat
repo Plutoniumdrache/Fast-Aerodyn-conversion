@@ -1,0 +1,20 @@
+------- AERODYN v15.00.* BLADE DEFINITION INPUT FILE -------------------------------------
+Generated with AeroElasticSE FAST driver
+======  Blade Properties =================================================================
+11          NumBlNds    - Number of blade nodes used in the analysis (-)
+    BlSpn        BlCrvAC        BlSwpAC        BlCrvAng       BlTwist        BlChord          BlAFID
+     (m)           (m)            (m)            (deg)         (deg)           (m)              (-)
+0	0	0	0	73.48	3.725	1
+4.258	0	0	0	47.13	3.725	2
+8.308	0	0	0	31.14	4.8	3
+12.357	0	0	0	15.16	5.74	4
+23.505	0	0	0	6.81	5.09182	5
+36.61	0	0	0	1.91	4.32985	6
+50.39	0	0	0	-0.17	3.52866	7
+63.495	0	0	0	0.88	2.76668	8
+74.643	0	0	0	0.03	2.11851	9
+82.742	0	0	0	-0.45	1.64758	10
+87	0	0	0	-0.67	1.4	11
+
+
+
