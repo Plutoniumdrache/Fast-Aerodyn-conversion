@@ -4,7 +4,7 @@
 % -----------------------------
 
 clearvars;clc;close all;
-
+clear all;
 %% PreProcessing SLOW for all simulations
 
 % Default Parameter Turbine and Controller
@@ -55,7 +55,9 @@ end
 
 tout = simout.tout;
 
-%% Run FAST simualtion to compare
+%% Run FAST simulations to compare
+% run aerodynV15 or V14
+aerodynV15 = 0; % 1 = V15, 0 = V14
 if 0 == step
 wind = OPs;
 % find parameter placeholder in inflow file and replace with wind speed
@@ -67,18 +69,22 @@ wind = OPs;
     fid = fopen(new_filename, 'w');
     fwrite(fid, S);
     fclose(fid);
-end    
-    % run FAST
-    dos('.\openfast_x64.exe IEA-3.4-130-RWT.fst');
-    
+end
+if aerodynV15
+    % run FAST with aerodyn V15
+    dos('.\openfast_x64.exe IEA-3.4-130-RWT_AD15.fst');
     % rename output and move file to output directory
-    OutputFile  = 'IEA-3.4-130-RWT.out';
+    OutputFile  = 'IEA-3.4-130-RWT_AD15.out';
+else
+    % run FAST with aerodyn V14
+    dos('.\openfast_x64.exe IEA-3.4-130-RWT_AD14.fst');
+    % rename output and move file to output directory
+    OutputFile  = 'IEA-3.4-130-RWT_AD14.out';
+end
+    
+
 
 %% PostProcessing FAST
-
-% if using aerodyn V15 activate for correct read of result file
-aerodynV15 = 1;
-
 if aerodynV15
     fid         = fopen(OutputFile);
     formatSpec  = repmat('%f',1,18);
@@ -87,9 +93,9 @@ if aerodynV15
     Wind1VelX   = FASTResults{:,2};
     BldPitch1   = FASTResults{:,5};
     RotSpeed    = FASTResults{:,6};
-    RtAeroCp    = FASTResults{:,15};
+    RtAeroCp    = FASTResults{:,15}; % only supported by aerodyn v15
     RtTSR       = FASTResults{:,16}; % only supported by aerodyn v15
-    GenPwr      = FASTResults{:,17}; % only supported by aerodyn v15
+    GenPwr      = FASTResults{:,17}; 
     GenTq       = FASTResults{:,18};
 else
     fid         = fopen(OutputFile);
@@ -105,41 +111,60 @@ else
 end
 %% PostProcessing SLOW
 figure
-
 subplot(511)
 hold on;box on;grid on;
 plot(tout,Omega*60/2/pi)
 plot(Time, RotSpeed)
 ylabel('\Omega [rpm]')
-legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    legend('SLOW','FAST AD15','Location','southeast')
+else
+    legend('SLOW','FAST AD14','Location','southeast')
+end
 
 subplot(512)
 hold on;box on;grid on;
 plot(tout,rad2deg(theta))
 plot(Time, BldPitch1)
 ylabel('\theta [°]')
-legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    legend('SLOW','FAST AD15','Location','southeast')
+else
+    legend('SLOW','FAST AD14','Location','southeast')
+end
 
 subplot(513)
 hold on;box on;grid on;
 plot(tout,M_g./1000)
 plot(Time,GenTq)
 ylabel('M_g [kNm]')
-legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    legend('SLOW','FAST AD15','Location','southeast')
+else
+    legend('SLOW','FAST AD14','Location','southeast')
+end
 
 subplot(514)
 hold on;box on;grid on;
 plot(tout,Power_el./1000)
 plot(Time,GenPwr)
 ylabel('Power [kW]')
-legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    legend('SLOW','FAST AD15','Location','southeast')
+else
+    legend('SLOW','FAST AD14','Location','southeast')
+end
 
 subplot(515)
 hold on;box on;grid on;
 plot(tout,v_0)
 plot(Time,Wind1VelX)    
 ylabel('v_0 [m/s]')
-legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    legend('SLOW','FAST AD15','Location','southeast')
+else
+    legend('SLOW','FAST AD14','Location','southeast')
+end
 
 if aerodynV15
     figure
@@ -149,7 +174,7 @@ if aerodynV15
     plot(tout,c_P)
     plot(Time,RtAeroCp)    
     ylabel('')
-    legend('SLOW','FAST','Location','southeast')
+    legend('SLOW','FAST AD15','Location','southeast')
     
     subplot(212)
     title('lambda')
@@ -157,5 +182,5 @@ if aerodynV15
     plot(tout,lambda)
     plot(Time,RtTSR)    
     ylabel('')
-    legend('SLOW','FAST','Location','southeast')
+    legend('SLOW','FAST AD15','Location','southeast')
 end
