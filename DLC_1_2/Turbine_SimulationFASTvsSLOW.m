@@ -76,7 +76,7 @@ end
 
 %% PostProcessing FAST
 fid         = fopen(OutputFile);
-formatSpec  = repmat('%f',1,12);
+formatSpec  = repmat('%f',1,16);
 FASTResults = textscan(fid,formatSpec,'HeaderLines',8);
 Time        = FASTResults{:,1};
 Wind1VelX   = FASTResults{:,2};
@@ -84,8 +84,8 @@ BldPitch1   = FASTResults{:,5};
 RotSpeed    = FASTResults{:,6};
 % RtAeroCp    = FASTResults{:,11};
 % RtTSR       = FASTResults{:,12};
-GenPwr      = FASTResults{:,11};
-GenTq       = FASTResults{:,12};
+GenPwr      = FASTResults{:,15};
+GenTq       = FASTResults{:,16};
 fclose(fid);
 %% PostProcessing SLOW
 figure
