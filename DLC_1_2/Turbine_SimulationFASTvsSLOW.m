@@ -19,8 +19,8 @@ Parameter.Time.TMax             = 80;   % [s] simulation length
 
 %% Loop over Operation Points
     
-OPs = [10];
-step = 0    ;
+OPs = [7];
+step = 0;
 nOP = length(OPs);
 
 for iOP=1:nOP
@@ -75,18 +75,34 @@ end
     OutputFile  = 'IEA-3.4-130-RWT.out';
 
 %% PostProcessing FAST
-fid         = fopen(OutputFile);
-formatSpec  = repmat('%f',1,16);
-FASTResults = textscan(fid,formatSpec,'HeaderLines',8);
-Time        = FASTResults{:,1};
-Wind1VelX   = FASTResults{:,2};
-BldPitch1   = FASTResults{:,5};
-RotSpeed    = FASTResults{:,6};
-% RtAeroCp    = FASTResults{:,11};
-% RtTSR       = FASTResults{:,12};
-GenPwr      = FASTResults{:,15};
-GenTq       = FASTResults{:,16};
-fclose(fid);
+
+% if using aerodyn V15 activate for correct read of result file
+aerodynV15 = 1;
+
+if aerodynV15
+    fid         = fopen(OutputFile);
+    formatSpec  = repmat('%f',1,18);
+    FASTResults = textscan(fid,formatSpec,'HeaderLines',8);
+    Time        = FASTResults{:,1};
+    Wind1VelX   = FASTResults{:,2};
+    BldPitch1   = FASTResults{:,5};
+    RotSpeed    = FASTResults{:,6};
+    RtAeroCp    = FASTResults{:,15};
+    RtTSR       = FASTResults{:,16}; % only supported by aerodyn v15
+    GenPwr      = FASTResults{:,17}; % only supported by aerodyn v15
+    GenTq       = FASTResults{:,18};
+else
+    fid         = fopen(OutputFile);
+    formatSpec  = repmat('%f',1,16);
+    FASTResults = textscan(fid,formatSpec,'HeaderLines',8);
+    Time        = FASTResults{:,1};
+    Wind1VelX   = FASTResults{:,2};
+    BldPitch1   = FASTResults{:,5};
+    RotSpeed    = FASTResults{:,6};
+    GenPwr      = FASTResults{:,15};
+    GenTq       = FASTResults{:,16};
+    fclose(fid);
+end
 %% PostProcessing SLOW
 figure
 
@@ -125,19 +141,21 @@ plot(Time,Wind1VelX)
 ylabel('v_0 [m/s]')
 legend('SLOW','FAST','Location','southeast')
 
-% figure
-% subplot(211)
-% title('c_P')
-% hold on;box on;grid on;
-% plot(tout,c_P)
-% plot(Time,RtAeroCp)    
-% ylabel('')
-% legend('SLOW','FAST','Location','southeast')
-% 
-% subplot(212)
-% title('lambda')
-% hold on;box on;grid on;
-% plot(tout,lambda)
-% plot(Time,RtTSR)    
-% ylabel('')
-% legend('SLOW','FAST','Location','southeast')
+if aerodynV15
+    figure
+    subplot(211)
+    title('c_P')
+    hold on;box on;grid on;
+    plot(tout,c_P)
+    plot(Time,RtAeroCp)    
+    ylabel('')
+    legend('SLOW','FAST','Location','southeast')
+    
+    subplot(212)
+    title('lambda')
+    hold on;box on;grid on;
+    plot(tout,lambda)
+    plot(Time,RtTSR)    
+    ylabel('')
+    legend('SLOW','FAST','Location','southeast')
+end
