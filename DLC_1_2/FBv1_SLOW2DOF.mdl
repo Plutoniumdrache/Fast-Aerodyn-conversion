@@ -42,10 +42,10 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <cp:category>model</cp:category>
-  <dcterms:created xsi:type="dcterms:W3CDTF">2024-12-11T07:26:31Z</dcterms:created>
+  <dcterms:created xsi:type="dcterms:W3CDTF">2024-12-16T15:30:37Z</dcterms:created>
   <cp:lastModifiedBy>Julius</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2024-12-11T07:26:31Z</dcterms:modified>
-  <cp:revision>15.10</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2024-12-16T15:30:37Z</dcterms:modified>
+  <cp:revision>15.11</cp:revision>
   <cp:version>R2022b</cp:version>
 </cp:coreProperties>
 
@@ -60,7 +60,7 @@ __MWOPC_PART_BEGIN__ /metadata/mwcoreProperties.xml
 __MWOPC_PART_BEGIN__ /metadata/mwcorePropertiesExtension.xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <mwcoreProperties xmlns="http://schemas.mathworks.com/package/2014/corePropertiesExtension">
-  <uuid>8d918561-3026-4134-acb4-c503534b276c</uuid>
+  <uuid>67f7aecf-e463-42f6-b02d-c25eaebfedde</uuid>
 </mwcoreProperties>
 
 __MWOPC_PART_BEGIN__ /metadata/mwcorePropertiesReleaseInfo.xml
@@ -122,7 +122,7 @@ __MWOPC_PART_BEGIN__ /simulink/blockdiagram.xml
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:15.10&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:15.11&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="LibraryLinkDisplay">all</P>
@@ -234,7 +234,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
         <P Name="StopTime">Parameter.Time.TMax</P>
         <P Name="AbsTol">auto</P>
         <P Name="AutoScaleAbsTol">on</P>
-        <P Name="FixedStep">Parameter.Time.dt</P>
+        <P Name="FixedStep"> Parameter.Time.dt</P>
         <P Name="InitialStep">auto</P>
         <P Name="MaxOrder">5</P>
         <P Name="ZcThreshold">auto</P>
@@ -951,7 +951,7 @@ __MWOPC_PART_BEGIN__ /simulink/configSet0.xml
     </Array>
     <P Name="Name">Configuration</P>
     <P Name="CurrentDlgPage">Solver</P>
-    <P Name="ConfigPrmDlgPosition">[ 71, 71, 900, 710 ]</P>
+    <P Name="ConfigPrmDlgPosition">[ 0, 0, 0, 0 ]</P>
     <P Name="ExtraOptions"/>
   </Object>
 </ConfigSet>
@@ -1038,8 +1038,8 @@ Dynamic</P>
 __MWOPC_PART_BEGIN__ /simulink/modelDictionary.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" defaultPackage="slid" packageUris="http://schema.mathworks.com/mf0/slid/R2022b_20220222">
-  <System type="System" uuid="14e0b849-2c4b-4372-9c37-d067f0fc53b1">
-    <Interface type="Interface" uuid="94e0abee-5087-4a33-a55a-f64b4029ad14"/>
+  <System type="System" uuid="4b87e375-76c4-4a07-8248-d6b5d79aa027">
+    <Interface type="Interface" uuid="4ac29008-9ca6-4112-a0ae-625766bf498d"/>
   </System>
 </MF0>
 __MWOPC_PART_BEGIN__ /simulink/plugins/SimscapeModelParametersPlugin.xml
@@ -1051,27 +1051,27 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/SimscapeModelParametersPlugin.xml
 __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <sltp_graph version="1.1" packageUris="http://schema.mathworks.com/mf0/sltp_mm/R2022b_202203181029">
-  <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="c3041ae7-69e3-44c0-a842-6c1401e461cb">
+  <sltp.mm.core.Context type="sltp.mm.core.Context" uuid="08472e6a-d2ec-406f-bf9f-bc526495d4c1">
     <priorityDirection>HighNumberLast</priorityDirection>
     <editorState type="sltp.mm.core.EditorState" uuid="7c730d68-2d74-4262-99e6-9b3aebead8b3">
       <isSynchronized>true</isSynchronized>
       <panelState type="sltp.mm.core.EditorPanelState" uuid="5f4443a3-b792-4952-8733-043c2efb9697"/>
     </editorState>
-    <rootTask type="sltp.mm.core.Task" uuid="a75f803a-40b8-457f-85fa-5d51fa48ddb7">
-      <context type="sltp.mm.core.Context" uuid="c3041ae7-69e3-44c0-a842-6c1401e461cb"/>
+    <rootTask type="sltp.mm.core.Task" uuid="d9887b3d-77ec-4b45-9ae1-cd64a1c9331b">
+      <context type="sltp.mm.core.Context" uuid="08472e6a-d2ec-406f-bf9f-bc526495d4c1"/>
       <explicit>false</explicit>
       <name>Default</name>
       <priority>-2147483648</priority>
-      <subgraph type="sltp.mm.core.Graph" uuid="8cdb43bb-3a93-48d1-84ce-b20b0f110f6d">
-        <tasks type="sltp.mm.core.Task" uuid="70bffd2d-4f45-4422-9961-36eb4e2251b9">
+      <subgraph type="sltp.mm.core.Graph" uuid="1033b862-db72-431c-8213-ba66a37d931f">
+        <tasks type="sltp.mm.core.Task" uuid="534e7297-392b-4431-99d7-e916a9265649">
           <baseTask>true</baseTask>
-          <context type="sltp.mm.core.Context" uuid="c3041ae7-69e3-44c0-a842-6c1401e461cb"/>
+          <context type="sltp.mm.core.Context" uuid="08472e6a-d2ec-406f-bf9f-bc526495d4c1"/>
           <explicit>false</explicit>
           <id>1</id>
           <isTimed>true</isTimed>
           <name>Cont</name>
           <priority>40</priority>
-          <rates type="sltp.mm.core.Rate" uuid="563ce6ee-5851-40a9-bed5-c7c23cb5d9c5">
+          <rates type="sltp.mm.core.Rate" uuid="fcf78770-468d-4a1f-afdd-844b9165ad00">
             <annotation>Cont</annotation>
             <color>255</color>
             <hasBlocks>true</hasBlocks>
@@ -1081,13 +1081,12 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
             </rateSpec>
             <sti>0</sti>
           </rates>
-          <rates type="sltp.mm.core.Rate" uuid="53652fb1-eb48-441c-a8f4-86787794daca">
-            <annotation>FiM</annotation>
-            <color>-2139062017</color>
+          <rates type="sltp.mm.core.Rate" uuid="f994061c-39e6-400f-993c-7c29b77d5018">
+            <annotation>D1</annotation>
+            <color>-436207361</color>
             <hasBlocks>true</hasBlocks>
             <rateSpec type="sltp.mm.core.RateSpec">
-              <offset>1.0</offset>
-              <period>0.0</period>
+              <period>.0125</period>
             </rateSpec>
             <sti>1</sti>
           </rates>
@@ -1128,10 +1127,10 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleEditor.xml
           <title>Cont</title>
         </rates>
         <rates type="sltp.mm.syntax.RateData">
-          <color>#808080</color>
+          <color>#e60000</color>
           <hasBlocks>true</hasBlocks>
-          <rate>[0, 1]</rate>
-          <title>FiM</title>
+          <rate>0.0125</rate>
+          <title>D1</title>
         </rates>
         <title>Cont</title>
         <type>base</type>
@@ -6787,18 +6786,6 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
       </Array>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*2">
         <Object ObjectID="28">
-          <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
-          <P Name="ID" Class="char">Property Inspector</P>
-          <P Name="Visible" Class="logical">0</P>
-          <P Name="CreateCallback" Class="char"/>
-          <P Name="UserData" Class="char"/>
-          <P Name="Floating" Class="logical">0</P>
-          <P Name="DockPosition" Class="char">Right</P>
-          <P Name="Width" Class="int32">640</P>
-          <P Name="Height" Class="int32">480</P>
-          <P Name="Minimized" Class="char">Unset</P>
-        </Object>
-        <Object ObjectID="29">
           <P Name="Type" Class="char">Simulink:Editor:ReferencedFiles</P>
           <P Name="ID" Class="char">Referenced Files</P>
           <P Name="Visible" Class="logical">0</P>
@@ -6807,6 +6794,18 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
 </P>
           <P Name="Floating" Class="logical">0</P>
           <P Name="DockPosition" Class="char">Left</P>
+          <P Name="Width" Class="int32">640</P>
+          <P Name="Height" Class="int32">480</P>
+          <P Name="Minimized" Class="char">Unset</P>
+        </Object>
+        <Object ObjectID="29">
+          <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
+          <P Name="ID" Class="char">Property Inspector</P>
+          <P Name="Visible" Class="logical">0</P>
+          <P Name="CreateCallback" Class="char"/>
+          <P Name="UserData" Class="char"/>
+          <P Name="Floating" Class="logical">0</P>
+          <P Name="DockPosition" Class="char">Right</P>
           <P Name="Width" Class="int32">640</P>
           <P Name="Height" Class="int32">480</P>
           <P Name="Minimized" Class="char">Unset</P>
